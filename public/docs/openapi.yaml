@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/shop:
+    post:
+      summary: ''
+      operationId: postApiShop
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shop_name:
+                  type: string
+                  description: ''
+                  example: vero
+                area_id:
+                  type: string
+                  description: ''
+                  example: eos
+              required:
+                - shop_name
+                - area_id
+      security: []
+  '/api/shop/{area_id}':
+    get:
+      summary: ''
+      operationId: getApiShopArea_id
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: Success
+                  '0':
+                    data:
+                      -
+                        id: 1
+                        shop_name: 'ECONET MSASA'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 2
+                        shop_name: 'ECONET MSASA B'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 3
+                        shop_name: 'ECONET MSASA C'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 7
+                        shop_name: 'ECONET MSASA D'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 8
+                        shop_name: 'ECONET MSASA E'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 9
+                        shop_name: 'ECONET MSASA F'
+                        area_name: 'HARARE CBD'
+                      -
+                        id: 12
+                        shop_name: 'ECONET FIRST STREET'
+                        area_name: 'HARARE CBD'
+                    links:
+                      self: link-value
+                properties:
+                  status:
+                    type: string
+                    example: Success
+                  0:
+                    type: object
+                    properties:
+                      data:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            shop_name: 'ECONET MSASA'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 2
+                            shop_name: 'ECONET MSASA B'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 3
+                            shop_name: 'ECONET MSASA C'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 7
+                            shop_name: 'ECONET MSASA D'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 8
+                            shop_name: 'ECONET MSASA E'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 9
+                            shop_name: 'ECONET MSASA F'
+                            area_name: 'HARARE CBD'
+                          -
+                            id: 12
+                            shop_name: 'ECONET FIRST STREET'
+                            area_name: 'HARARE CBD'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            shop_name:
+                              type: string
+                              example: 'ECONET MSASA'
+                            area_name:
+                              type: string
+                              example: 'HARARE CBD'
+                      links:
+                        type: object
+                        properties:
+                          self:
+                            type: string
+                            example: link-value
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: area_id
+        description: 'The ID of the area.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/area:
+    post:
+      summary: ''
+      operationId: postApiArea
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                area_name:
+                  type: string
+                  description: ''
+                  example: est
+              required:
+                - area_name
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
